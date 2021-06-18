@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class SuggestionRendersPageActions {
 
 	WebDriver driver;
-	@FindBy(xpath = "//*[@id='main']/div/div[2]/table/tbody/tr[1]")
+	@FindBy(xpath = "//*[@id='main']/div/div[2]/table/tbody/tr[1]/td[2]/a")
 	WebElement first_result;
 	
 	public SuggestionRendersPageActions(WebDriver driver) {

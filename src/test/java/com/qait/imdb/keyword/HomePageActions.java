@@ -32,6 +32,7 @@ public class HomePageActions {
 	}
 	
 	public void searchMovie(String movieName){
+		System.out.println("searchmovie methofd"+driver);
 		wait.until(ExpectedConditions.elementToBeClickable(input_search)).sendKeys(movieName);
 		wait.until(ExpectedConditions.elementToBeClickable(btn_search)).click();
 		//input_search.sendKeys(movieName);

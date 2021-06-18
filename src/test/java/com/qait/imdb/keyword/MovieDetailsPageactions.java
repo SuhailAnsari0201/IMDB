@@ -1,6 +1,5 @@
 package com.qait.imdb.keyword;
 
-import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,20 +8,17 @@ import org.openqa.selenium.support.FindBy;
 public class MovieDetailsPageactions {
 
 	WebDriver driver;
-	@FindBy(xpath = "//div[@data-testid='storyline-header']")
+	@FindBy(xpath = "//*[text()='Storyline']")
 	WebElement header_storyline;
-
-	@FindBy(xpath = "//div[@class='ipc-html-content ipc-html-content--base']/div")
-	WebElement storyline;
 	
-	@FindBy(xpath = "//div[@data-testid='title-cast']")
+	@FindBy(xpath = "//*[text()='Cast']")
 	WebElement herder_cast;
 	
-	@FindBy(xpath = "//a[@data-testid='title-cast-item__actor']")
-	List<WebElement> cast_actorNames;
+	@FindBy(xpath = "//a[text()='See full cast']")
+	WebElement cast_listLink;
 	
-	@FindBy(xpath = "//div[@class='title-cast-item__characters-list']")
-	List<WebElement> cast_actorCharacters;
+	@FindBy(xpath = "//a[text()='Plot Summary']")
+	WebElement plot_summaryLink;
 	
 	
 
@@ -37,35 +33,21 @@ public class MovieDetailsPageactions {
 	public void clickOnMovieStoryline() {
 		header_storyline.click();
 	}
-	public String getMovieStoryline() {
-		return storyline.getText();
-	}
+//	public void clickOnMoviePlotSummaryLink() {
+//		String clickLink = Keys.chord(Keys.CONTROL,Keys.ENTER);
+//		plot_summaryLink.sendKeys(clickLink);
+//	}
+	
 	
 	public void clickOnMovieCast() {
 		herder_cast.click();
 	}
-	public String getMovieCastDetails() {
-		int size = cast_actorNames.size();
-		String actorName[] = new String[size];
-		String charactorName[] = new String[size];
-		String result[] = new String[size];
-		int i=0;
-		int j=0;
-		if (cast_actorNames.size() > 0) {
-			for (WebElement webElement : cast_actorNames) {
-				actorName[i] = webElement.getText();
-				i++;
-			}
-		}
-		if (cast_actorCharacters.size() > 0) {
-			for (WebElement webElement : cast_actorCharacters) {
-				charactorName[j] = webElement.getText();
-				result[j] = actorName[j] + "-" + charactorName[j] ;
-				j++;
-			}
-		}
-		
-		return result.toString();
-	}
+//	public void clickOnFullCastLink() {
+//		String clickLink = Keys.chord(Keys.CONTROL,Keys.ENTER);
+//		cast_listLink.sendKeys(clickLink);
+//	}
+
+	
+	
 
 }
